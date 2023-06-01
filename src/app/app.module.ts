@@ -7,11 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarComponent } from './components/car/car.component';
-import { CategoryComponent } from './components/category/category.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
-
+import { RouterModule } from '@angular/router';
 
 import {ToastrModule} from "ngx-toastr";
 import { ToastrService } from 'ngx-toastr/public_api';
@@ -32,31 +31,21 @@ import { FilterBrandPipePipe } from './pipes/filter-brand-pipe.pipe';
 import { CarDetailsComponent } from './components/car/car-details/car-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { CreditCardAddComponent } from './components/credit-card-add/credit-card-add.component';
+import { ProfileUpdateComponent } from './components/profile-update/profile-update.component';
+import { RegisterComponent } from './components/register/register.component';
+import { RentAddComponent } from './components/rent-add/rent-add.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AdminComponent } from './layouts/admin/admin.component';
+import { AuthComponent } from './layouts/auth/auth.component';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarComponent,
-    ColorComponent,
-    BrandComponent,
-    CategoryComponent,
-    CustomerComponent,
-    FilterCarPipePipe,
-    FilterCarDetailPipePipe,
-    FilterColorPipePipe,
-    FilterColorBrandPipe,
-    FilterBrandPipePipe,
-    BrandAddComponent,
-    BrandUpdateComponent,
-    CarAddComponent,
-    CarUpdateComponent,
-    ColorAddComponent,
-    ColorUpdateComponent,
-    MaterialComponent,
-    NavComponent,
-    RentComponent,
-    CarDetailsComponent,
-    LoginComponent
+    HomeComponent,
+    AdminComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +54,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    ComponentsModule,
+    RouterModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     })

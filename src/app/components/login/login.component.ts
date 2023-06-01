@@ -1,43 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormControl, Validators, FormBuilder  } from "@angular/forms";
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/services/auth.service';
+import { Component, OnInit } from '@angular/core';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
-  loginForm:FormGroup;
-  constructor(private formBuilder:FormBuilder,
-     private authService:AuthService, private toastrService:ToastrService) { }
+  loginForm: FormGroup;
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private toastrService: ToastrService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.createLoginForm();
   }
 
-  createLoginForm(){
+  createLoginForm() {
     this.loginForm = this.formBuilder.group({
-      email: ["",Validators.required],
-      password:["",Validators.required]
-    })
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+    });
   }
 
-  login(){
-    if(this.loginForm.valid){
-      console.log(this.loginForm.value);
-      let loginModel = Object.assign({},this.loginForm.value)
-
-      this.authService.login(loginModel).subscribe(response=>{
-        this.toastrService.info(response.message)
-        localStorage.setItem("token",response.data.token)
-      },responseError=>{
-        //console.log(responseError)
-        this.toastrService.error(responseError.error)
-      })
+  login() {
+    if (this.loginForm.valid) {
+      let loginModel = Object.assign({}, this.loginForm.value);
+      this.authService.login(loginModel).subscribe(
+        (response) => {
+          this.toastrService.info(response.message);
+          localStorage.setItem('token', response.data.token);
+          this.router.navigate(['/']);
+        },
+        (responseError) => {
+          this.toastrService.error(responseError.error, 'Doğrulama Hatası');
+        }
+      );
     }
   }
-
 }

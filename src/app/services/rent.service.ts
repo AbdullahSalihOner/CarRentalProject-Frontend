@@ -18,9 +18,10 @@ export class RentService {
     );
   }
 
-  addRent(rent: Rent): Observable<ResponseModel> {
+  add(rent: Rent): Observable<ResponseModel> {
+    let newPath = this.apiUrl + 'rentals/add';
     return this.httpClient.post<ResponseModel>(
-      this.apiUrl + 'rentals/add',
+      'https://localhost:44363/api/rentals/add',
       rent
     );
   }
