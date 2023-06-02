@@ -14,6 +14,7 @@ import { ColorComponent } from './../../components/color/color.component';
 import { CarDetailsComponent } from './../../components/car/car-details/car-details.component';
 import { BrandComponent } from './../../components/brand/brand.component';
 import { Routes } from '@angular/router';
+import { CarComponent } from 'src/app/components/car/car.component';
 
 export const AdminRoutes: Routes = [
   {
@@ -24,6 +25,10 @@ export const AdminRoutes: Routes = [
     path: 'car',
     component: CarDetailsComponent,
     canActivate: [LoginGuard],
+  },
+  {
+    path: 'cars',
+    component: CarComponent,
   },
   {
     path: 'color',

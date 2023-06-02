@@ -19,8 +19,6 @@ import { CarService } from './../../../services/car.service';
 import { Component, OnInit } from '@angular/core';
 import { CarDetails } from 'src/app/models/carDetail';
 
-
-
 @Component({
   selector: 'app-car-details',
   templateUrl: './car-details.component.html',
@@ -63,11 +61,11 @@ export class CarDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    //this.getCarImages();
-   // this.getCurrentUser();
+    this.getCarImages();
+    this.getCurrentUser();
     this.getColors();
     this.getBrands();
-    //this.getCustomer();
+    this.getCustomer();
     this.getCarsDetails();
     this.activatedRoute.params.subscribe((params) => {
       if (params['colorId']) {
@@ -156,7 +154,7 @@ export class CarDetailsComponent implements OnInit {
     let imagePath = '';
     this.carImages.forEach((car) => {
       if (car.carId == carId) {
-        imagePath = 'https://localhost:44363' + car.imagePath;
+        imagePath = 'https://localhost:44397' + car.imagePath;
       }
     });
     return imagePath;

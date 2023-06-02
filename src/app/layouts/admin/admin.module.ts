@@ -25,6 +25,7 @@ import { FilterColorPipePipe } from '../../pipes/filter-color-pipe.pipe';
 import { FilterBrandPipePipe } from '../../pipes/filter-brand-pipe.pipe';
 import { FilterCarDetailPipePipe } from '../../pipes/filter-car-detail-pipe.pipe';
 import { FilterColorBrandPipe } from '../../pipes/filter-color-brand.pipe';
+import { CarComponent } from 'src/app/components/car/car.component';
 
 @NgModule({
   imports: [
@@ -44,8 +45,8 @@ import { FilterColorBrandPipe } from '../../pipes/filter-color-brand.pipe';
     ColorComponent,
     RentComponent,
     UserComponent,
-    CarDetailsComponent,
     ColorAddComponent,
+    CarComponent,
     BrandAddComponent,
     CarAddComponent,
     ColorUpdateComponent,

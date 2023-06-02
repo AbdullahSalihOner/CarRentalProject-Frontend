@@ -1,18 +1,18 @@
+import { SingleResponseModel } from './../models/singleResponseModel';
+import { ResponseModel } from './../models/responseModel';
+import { Color } from './../models/color';
+import { ListResponseModel } from './../models/listResponseModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Color } from '../models/color';
-import { ResponseModel } from '../models/responseModel';
-import { ListResponseModel } from '../models/listResponseModel';
-import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ColorService {
+  apiUrl = 'https://localhost:44363/api/';
 
-  apiUrl= "https://localhost:44363/api/";
-  constructor(private httpClient:HttpClient) { };
+  constructor(private httpClient: HttpClient) {}
 
   getColors(): Observable<ListResponseModel<Color>> {
     return this.httpClient.get<ListResponseModel<Color>>(
@@ -23,6 +23,13 @@ export class ColorService {
   add(color: Color): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(
       this.apiUrl + 'colors/add',
+      color
+    );
+  }
+
+  delete(color: Color): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(
+      this.apiUrl + 'colors/delete',
       color
     );
   }
@@ -39,4 +46,3 @@ export class ColorService {
     return this.httpClient.get<SingleResponseModel<Color>>(newPath);
   }
 }
-

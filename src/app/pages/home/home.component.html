@@ -1,4 +1,4 @@
-<nav></nav>
+<app-nav></app-nav>
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button
@@ -44,9 +44,14 @@
           <p class="p-color">
             Kullandığınız gün kadar ödeme yapın. Merak etmeyin depo bizden😉
           </p>
-          <p><a class="btn btn-lg btn-primary" href="#"  [routerLink]="['/car']"
-            routerLinkActive="router-link-active"
-           >İncele</a></p>
+          <p>
+            <a
+              class="btn btn-lg btn-primary"
+              [routerLink]="['/car']"
+              routerLinkActive="router-link-active"
+              >İncele</a
+            >
+          </p>
         </div>
       </div>
     </div>
@@ -69,9 +74,7 @@
             Beğendiğiniz arabaları takip edebilir, kiralayan müşterimiz arabayı
             teslim edince kiralayabilirsiniz.
           </p>
-          <p><a class="btn btn-lg btn-primary" href="#"  [routerLink]="['/car']"
-            routerLinkActive="router-link-active"
-           >İncele</a></p>
+          <p><a class="btn btn-lg btn-primary" href="#">İncele</a></p>
         </div>
       </div>
     </div>
@@ -92,7 +95,14 @@
           <p class="p-color">
             Kiraladığınız arabalar ile dilediğiniz geziler düzenleyebilirsiniz.
           </p>
-          <p><a class="btn btn-lg btn-primary" href="#">Markaları İncele</a></p>
+          <p>
+            <a
+              class="btn btn-lg btn-primary"
+              [routerLink]="['/brand']"
+              routerLinkActive="router-link-active"
+              >Markaları İncele</a
+            >
+          </p>
         </div>
       </div>
     </div>
@@ -310,6 +320,6 @@
 <!-- /.container -->
 
 <!-- FOOTER -->
-<footer class="container">
+<footer class="container text-center">
   <p>© 2023 Abdullah Salih Öner</p>
 </footer>

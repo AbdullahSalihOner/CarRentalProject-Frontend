@@ -25,6 +25,13 @@ export class BrandService {
     );
   }
 
+  delete(brand: Brand): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(
+      this.apiUrl + 'brands/delete',
+      brand
+    );
+  }
+
   update(brand: Brand): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(
       this.apiUrl + 'brands/update',

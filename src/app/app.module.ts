@@ -55,7 +55,6 @@ import { ComponentsModule } from './components/components.module';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     ComponentsModule,
-    RouterModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     })
